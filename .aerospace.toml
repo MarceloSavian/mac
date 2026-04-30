@@ -94,8 +94,7 @@ EOF
 
 # App launcher
 alt-d = "exec-and-forget open -a 'Raycast'"
-alt-return = "exec-and-forget open -na 'iTerm'"
-alt-q = "exec-and-forget osascript -e 'tell application (path to frontmost application as text) to quit'"
+alt-q = "exec-and-forget osascript -e 'delay 0.1' -e 'tell application \"System Events\" to keystroke \"w\" using command down'"
 
 # Layouts
 alt-slash = "layout tiles horizontal vertical"
@@ -127,6 +126,7 @@ alt-6 = ["workspace 6", "exec-and-forget sketchybar --trigger aerospace_workspac
 alt-7 = ["workspace 7", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
 alt-8 = ["workspace 8", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
 alt-9 = ["workspace 9", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-0 = ["workspace 10", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
 
 # Move node to workspace and follow focus
 alt-shift-1 = ["move-node-to-workspace 1", "workspace 1", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
@@ -138,6 +138,7 @@ alt-shift-6 = ["move-node-to-workspace 6", "workspace 6", "exec-and-forget sketc
 alt-shift-7 = ["move-node-to-workspace 7", "workspace 7", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
 alt-shift-8 = ["move-node-to-workspace 8", "workspace 8", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
 alt-shift-9 = ["move-node-to-workspace 9", "workspace 9", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-0 = ["move-node-to-workspace 10", "workspace 10", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
 
 # Workspace navigation
 alt-tab        = "workspace-back-and-forth"
@@ -179,6 +180,7 @@ shift-down = ["volume set 0", "mode main"]
 7 = "main"
 8 = "main"
 9 = "main"
+10 = "main"
 
 # ─────────────────────────────────────────────────────────────
 # Window rules

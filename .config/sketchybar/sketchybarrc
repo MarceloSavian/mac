@@ -36,10 +36,10 @@ sketchybar --add event aerospace_workspace_change
 # Left
 . "$ITEM_DIR/arch_menu.sh"
 . "$ITEM_DIR/spotify.sh"
+. "$ITEM_DIR/playing.sh"
 . "$ITEM_DIR/spaces.sh"
 
 # Right
-. "$ITEM_DIR/playing.sh"
 . "$ITEM_DIR/battery.sh"
 . "$ITEM_DIR/sound.sh"
 . "$ITEM_DIR/updates.sh"

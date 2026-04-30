@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-WORKSPACES="1 2 3 4 5 6 7 8 9"
+WORKSPACES="1 2 3 4 5 6 7 8 9 10"
 first=1
 
 for ws in $WORKSPACES; do

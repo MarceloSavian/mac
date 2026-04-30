@@ -1,6 +1,8 @@
+# f179 = apple logo (FA Brands)
+APPLE_ICON=$(printf '\xef\x85\xb9')
 sketchybar --add item apple_menu left \
-           --set apple_menu icon="" \
-                            icon.font="SF Pro:Black:16.0" \
+           --set apple_menu icon="$APPLE_ICON" \
+                            icon.font="Font Awesome 7 Brands:Regular:16.0" \
                             icon.color=0xff9fd06a \
                             icon.padding_left=13 \
                             icon.padding_right=8 \
