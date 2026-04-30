@@ -93,10 +93,9 @@ brew services start sketchybar
 
 ## 7. Wallpaper rotation
 
-Add your wallpaper images to `~/Pictures/wallpapers/`, then:
-
 ```bash
 mkdir -p ~/Pictures/wallpapers
+cp ~/mac/wallpapers/* ~/Pictures/wallpapers/
 mkdir -p ~/scripts
 cp ~/mac/scripts/wallpaper.sh ~/scripts/wallpaper.sh
 chmod +x ~/scripts/wallpaper.sh
