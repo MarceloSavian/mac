@@ -1,0 +1,6 @@
+[includeIf "gitdir:~/Documents/projects/personal/"]
+	path = /Users/marcelosavian/.gitconfig-personal
+[includeIf "gitdir:~/Documents/projects/work/"]
+	path = /Users/marcelosavian/.gitconfig-personal
+[includeIf "gitdir:~/.config/"]
+        path = /Users/marcelosavian/.gitconfig-personal

@@ -1,0 +1,208 @@
+# Place a copy of this config to ~/.aerospace.toml
+# After that, you can edit ~/.aerospace.toml to your liking
+
+# You can use it to add commands that run after AeroSpace startup.
+# Available commands: https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = [
+ '''
+exec-and-forget osascript <<'EOF'
+tell application "iTerm"
+    activate
+
+    -- Create a single window with default profile
+    set win1 to (create window with default profile)
+    delay 0.2
+
+    -- Get the current session of that window
+    set sess1 to current session of win1
+    tell sess1
+        write text "nvim"
+    end tell
+
+    -- Optional: set the window name
+    set name of win1 to "Editor"
+end tell
+EOF
+''' 
+]
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations
+# See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Layouts
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+accordion-padding = 30
+
+# Possible values: tiles | accordion
+default-root-container-layout = "tiles"
+
+# Possible values: horizontal | vertical | auto
+default-root-container-orientation = "auto"
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ["move-mouse monitor-lazy-center"]
+
+# Disable macOS “Hide application” (⌘H)
+automatically-unhide-macos-hidden-apps = false
+
+# Key mapping
+# Possible values: qwerty | dvorak | colemak
+[key-mapping]
+preset = "qwerty"
+
+# Gaps
+[gaps]
+inner.horizontal = 0
+inner.vertical   = 0
+outer.left       = 0
+outer.bottom     = 0
+outer.top        = 60
+outer.right      = 0
+
+# ─────────────────────────────────────────────────────────────
+# Main binding mode
+# ─────────────────────────────────────────────────────────────
+[mode.main.binding]
+
+ctrl-cmd-o = [
+  '''
+exec-and-forget osascript <<'EOF'
+tell application "iTerm"
+    activate
+
+    -- Create a single window with default profile
+    set win1 to (create window with default profile)
+    delay 0.2
+
+    -- Get the current session of that window
+    set sess1 to current session of win1
+    tell sess1
+        write text "nvim"
+    end tell
+
+    -- Optional: set the window name
+    set name of win1 to "Editor"
+end tell
+EOF
+'''
+]
+
+# App launcher
+alt-d = "exec-and-forget open -a 'Raycast'"
+
+# Layouts
+alt-slash = "layout tiles horizontal vertical"
+alt-comma = "layout accordion horizontal vertical"
+
+# Focus
+alt-h = "focus left"
+alt-j = "focus down"
+alt-k = "focus up"
+alt-l = "focus right"
+
+# Move
+alt-shift-h = "move left"
+alt-shift-j = "move down"
+alt-shift-k = "move up"
+alt-shift-l = "move right"
+
+# Resize
+alt-minus = "resize smart -50"
+alt-equal = "resize smart +50"
+
+# Workspaces
+alt-1 = ["workspace 1", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-2 = ["workspace 2", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-3 = ["workspace 3", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-4 = ["workspace 4", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-5 = ["workspace 5", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-6 = ["workspace 6", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-7 = ["workspace 7", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-8 = ["workspace 8", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-9 = ["workspace 9", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+
+# Move node to workspace and follow focus
+alt-shift-1 = ["move-node-to-workspace 1", "workspace 1", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-2 = ["move-node-to-workspace 2", "workspace 2", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-3 = ["move-node-to-workspace 3", "workspace 3", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-4 = ["move-node-to-workspace 4", "workspace 4", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-5 = ["move-node-to-workspace 5", "workspace 5", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-6 = ["move-node-to-workspace 6", "workspace 6", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-7 = ["move-node-to-workspace 7", "workspace 7", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-8 = ["move-node-to-workspace 8", "workspace 8", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+alt-shift-9 = ["move-node-to-workspace 9", "workspace 9", "exec-and-forget sketchybar --trigger aerospace_workspace_change"]
+
+# Workspace navigation
+alt-tab        = "workspace-back-and-forth"
+alt-shift-tab  = "move-workspace-to-monitor --wrap-around next"
+
+# Modes
+alt-shift-semicolon = "mode service"
+alt-shift-r = "reload-config"
+
+# ─────────────────────────────────────────────────────────────
+# Service binding mode
+# ─────────────────────────────────────────────────────────────
+[mode.service.binding]
+
+esc        = ["reload-config", "mode main"]
+r          = ["flatten-workspace-tree", "mode main"]
+f          = ["layout floating tiling", "mode main"]
+backspace = ["close-all-windows-but-current", "mode main"]
+
+alt-shift-h = ["join-with left", "mode main"]
+alt-shift-j = ["join-with down", "mode main"]
+alt-shift-k = ["join-with up", "mode main"]
+alt-shift-l = ["join-with right", "mode main"]
+
+down       = "volume down"
+up         = "volume up"
+shift-down = ["volume set 0", "mode main"]
+
+# ─────────────────────────────────────────────────────────────
+# Workspace → monitor assignment
+# ─────────────────────────────────────────────────────────────
+[workspace-to-monitor-force-assignment]
+1 = "secondary"
+2 = "secondary"
+3 = "secondary"
+4 = "secondary"
+5 = "secondary"
+6 = "main"
+7 = "main"
+8 = "main"
+9 = "main"
+
+# ─────────────────────────────────────────────────────────────
+# Window rules
+# ─────────────────────────────────────────────────────────────
+[[on-window-detected]]
+if.app-id = "com.googlecode.iterm2"
+if.window-title-regex-substring = "TERM-1"
+run = ["layout tiling", "move-node-to-workspace 1"]
+
+[[on-window-detected]]
+if.app-id = "com.google.Chrome" 
+run = ["layout tiling", "move-node-to-workspace 3"]
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.Outlook" 
+run = ["layout tiling", "move-node-to-workspace 7"]
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.teams2"
+run = ["layout tiling", "move-node-to-workspace 9"]
+
+[[on-window-detected]]
+if.app-id = "com.tinyspeck.slackmacgap"
+run = ["layout tiling", "move-node-to-workspace 8"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder" 
+run = ["layout tiling", "move-node-to-workspace 5"]
+

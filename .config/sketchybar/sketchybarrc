@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+
+ITEM_DIR="$HOME/.config/sketchybar/items"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+FONT="Monocraft"
+PADDINGS=3
+
+sketchybar --bar     height=50                 \
+                     corner_radius=14          \
+                     border_width=0            \
+                     margin=95                 \
+                     blur_radius=0             \
+                     position=top              \
+                     padding_left=4            \
+                     padding_right=4           \
+                     color=0xff1a1c26          \
+                     topmost=on                \
+                     sticky=on                 \
+                     font_smoothing=off        \
+                     y_offset=-100             \
+                     notch_width=0             \
+           --default drawing=on               \
+                     updates=when_shown        \
+                     icon.padding_left=$PADDINGS   \
+                     icon.padding_right=$PADDINGS  \
+                     label.padding_left=$PADDINGS  \
+                     label.padding_right=$PADDINGS \
+                     background.padding_right=$PADDINGS \
+                     background.padding_left=$PADDINGS
+
+sketchybar --animate sin 30 --bar y_offset=-100 y_offset=9
+
+sketchybar --add event aerospace_workspace_change
+
+# Left
+. "$ITEM_DIR/arch_menu.sh"
+. "$ITEM_DIR/spotify.sh"
+. "$ITEM_DIR/spaces.sh"
+
+# Right
+. "$ITEM_DIR/playing.sh"
+. "$ITEM_DIR/battery.sh"
+. "$ITEM_DIR/sound.sh"
+. "$ITEM_DIR/updates.sh"
+. "$ITEM_DIR/time.sh"
+. "$ITEM_DIR/system.sh"
+
+echo "sketchybar configuration loaded.."
