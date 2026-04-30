@@ -10,6 +10,7 @@ My macOS configuration files.
 brew install --cask aerospace
 brew install FelixKratz/formulae/sketchybar
 brew install --cask font-monocraft font-hack-nerd-font font-fontawesome font-material-icons
+brew install --cask scroll-reverser
 brew install jq switchaudio-osx
 ```
 
@@ -19,18 +20,23 @@ Download [Pacman-Dots.ttf](https://github.com/itaysharir/Dotfiles/raw/main/misc/
 
 ```bash
 # Clone the repo
-git clone https://github.com/MarceloSavian/dotfiles-mac.git ~/dotfiles-mac
+git clone https://github.com/MarceloSavian/mac.git ~/mac
 
 # Symlink configs
-ln -sf ~/dotfiles-mac/.aerospace.toml ~/.aerospace.toml
-ln -sf ~/dotfiles-mac/.zshrc ~/.zshrc
-ln -sf ~/dotfiles-mac/.zprofile ~/.zprofile
-ln -sf ~/dotfiles-mac/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles-mac/.config/sketchybar ~/.config/sketchybar
+ln -sf ~/mac/.aerospace.toml ~/.aerospace.toml
+ln -sf ~/mac/.zshrc ~/.zshrc
+ln -sf ~/mac/.zprofile ~/.zprofile
+ln -sf ~/mac/.gitconfig ~/.gitconfig
+ln -sf ~/mac/.config/sketchybar ~/.config/sketchybar
+
+# Restore Scroll Reverser preferences
+cp ~/mac/Library/Preferences/com.pilotmoon.scroll-reverser.plist ~/Library/Preferences/
 
 # Start services
 brew services start sketchybar
 ```
+
+> After restoring the Scroll Reverser plist, open Scroll Reverser from Applications and enable it from the menu bar.
 
 ## What's included
 
@@ -38,6 +44,7 @@ brew services start sketchybar
 |------|-------------|
 | `.aerospace.toml` | AeroSpace tiling window manager |
 | `.config/sketchybar/` | SketchyBar status bar (Pacman theme) |
+| `Library/Preferences/com.pilotmoon.scroll-reverser.plist` | Scroll Reverser (reverse mouse, keep trackpad natural) |
 | `.zshrc` | ZSH shell config |
 | `.zprofile` | ZSH profile (PATH setup) |
 | `.gitconfig` | Git config |
@@ -54,4 +61,6 @@ brew services start sketchybar
 - `Alt+H/J/K/L` — focus window
 - `Alt+Shift+H/J/K/L` — move window
 - `Alt+D` — open Raycast
+- `Alt+Q` — quit focused app
+- `Alt+Return` — open new iTerm2 window
 - `Alt+Shift+R` — reload config
