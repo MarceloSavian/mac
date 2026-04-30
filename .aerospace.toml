@@ -94,6 +94,8 @@ EOF
 
 # App launcher
 alt-d = "exec-and-forget open -a 'Raycast'"
+alt-return = "exec-and-forget open -na 'iTerm'"
+alt-q = "exec-and-forget osascript -e 'tell application (path to frontmost application as text) to quit'"
 
 # Layouts
 alt-slash = "layout tiles horizontal vertical"
