@@ -2,6 +2,8 @@
 
 My macOS configuration files. Clone this repo on a new machine and follow the steps below to reproduce the full setup.
 
+![Bar preview](assets/bar-preview.png)
+
 ---
 
 ## 1. System Settings (manual)
