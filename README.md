@@ -34,6 +34,14 @@ cp ~/mac/Library/Preferences/com.pilotmoon.scroll-reverser.plist ~/Library/Prefe
 
 # Start services
 brew services start sketchybar
+
+# Wallpaper rotation
+mkdir -p ~/Pictures/wallpapers  # add your images here
+mkdir -p ~/scripts
+cp ~/mac/scripts/wallpaper.sh ~/scripts/wallpaper.sh
+chmod +x ~/scripts/wallpaper.sh
+cp ~/mac/LaunchAgents/com.marcelosavian.wallpaper.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.marcelosavian.wallpaper.plist
 ```
 
 > After restoring the Scroll Reverser plist, open Scroll Reverser from Applications and enable it from the menu bar.
@@ -48,6 +56,8 @@ brew services start sketchybar
 | `.zshrc` | ZSH shell config |
 | `.zprofile` | ZSH profile (PATH setup) |
 | `.gitconfig` | Git config |
+| `scripts/wallpaper.sh` | Randomly rotates wallpaper from `~/Pictures/wallpapers/` |
+| `LaunchAgents/com.marcelosavian.wallpaper.plist` | Runs wallpaper script every 10 minutes at login |
 
 ## Bar layout
 
