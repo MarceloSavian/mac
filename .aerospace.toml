@@ -47,6 +47,11 @@ default-root-container-orientation = "auto"
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ["move-mouse monitor-lazy-center"]
 
+# Focus follows mouse: hovering a window focuses it
+focus-follows-mouse.enabled = true
+
+exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change']
+
 # Disable macOS “Hide application” (⌘H)
 automatically-unhide-macos-hidden-apps = false
 
